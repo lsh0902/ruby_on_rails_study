@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   get 'packs/index'
   get 'packs/show'
 
+  get "packs/:id" => "packs#show"
 
+
+  resources :pack, only: [:index, :show]
   resources :posts
   resources :users
   devise_for :admin_users, ActiveAdmin::Devise.config

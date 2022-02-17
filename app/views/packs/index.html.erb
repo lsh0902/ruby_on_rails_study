@@ -1,2 +1,23 @@
-<h1>Packs#index</h1>
-<p>Find me in app/views/packs/index.html.erb</p>
+<div class="container">
+  <div class="row">
+
+    <% @packs.each do |pack| %>
+      <div class="col-4 mb-5">
+        <div class="card" style="width: 18rem;">
+          <% if pack.image.attached? %>
+            <img src="<%= url_for(pack.image) %>" class="card-img-top" alt="...">
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= pack.product_name %></h5>
+            <p class="card-text"><%= pack.desc %></p>
+            <%= link_to "이동", packs_index_path, class:"btn btn-primary" %>
+          </div>
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
